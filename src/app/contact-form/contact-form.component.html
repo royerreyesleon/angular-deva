@@ -1,0 +1,12 @@
+<h2 class="text-center">Reactive forms! </h2>
+
+<!-- <img src="https://www.inoma.mx/wp-content/uploads/2016/07/construcci%C3%B3n.jpg" alt="" class="img"> -->
+
+
+<label for="name">Name: </label>
+<input id="name" type="text" formControl="name">
+
+<p>Value: {{ name.value }}</p>
+
+
+<button (click)="updateName()">Update Name</button>
