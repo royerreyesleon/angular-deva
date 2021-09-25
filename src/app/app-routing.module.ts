@@ -5,10 +5,10 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 
 const routes: Routes = [
-  // { path: '',              component: AboutComponent,  pathMatch: 'full'}
   // { path: 'contacto', component: ContactFormModule}
-  { path: 'inicio',   component: WelcomeComponent,},
-  { path: 'contacto', component: ContactFormComponent}
+  { path: '',        component: WelcomeComponent,  pathMatch: 'full'},
+  { path: 'home',    component: WelcomeComponent,},
+  { path: 'contact', component: ContactFormComponent}
 ];
 
 

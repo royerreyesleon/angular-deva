@@ -11,6 +11,10 @@ import { ContactFormModule } from './contact-form/contact-form.module';
 import { NavModule } from './components/nav/nav.module';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,13 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     NavModule,
     ContactFormModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatGridListModule
+  ],
+  exports:[
+
   ],
   providers: [],
   bootstrap: [AppComponent]

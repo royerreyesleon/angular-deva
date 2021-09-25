@@ -1,12 +1,72 @@
-<h2 class="text-center">Reactive forms! </h2>
+<h2 class="text-center">Reactive form! </h2>
 
-<!-- <img src="https://www.inoma.mx/wp-content/uploads/2016/07/construcci%C3%B3n.jpg" alt="" class="img"> -->
+<main>
 
+    <mat-card>
 
-<label for="name">Name: </label>
-<input id="name" type="text" formControl="name">
+        <!-- FORM -->
+        <form [formGroup]="formContact" (submit)="send()">
 
-<p>Value: {{ name.value }}</p>
+            <!-- NAME -->
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="letters or numbers" formControlName="name" autofocus>
 
+                <div class="text-danger" *ngIf="formContact.controls['name'].hasError('pattern')">
+                    enter letters or numbers
+                </div>
+            </mat-form-field>
+        
+            <br>
+            
+            <!-- EMAIL -->
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email" formControlName="email" type="email">
 
-<button (click)="updateName()">Update Name</button>
+                <div class="text-danger" *ngIf="formContact.controls['email'].hasError('email')">
+                    enter a valid email
+                </div> 
+
+            </mat-form-field>
+        
+            <br>
+
+            <!-- PHONE -->
+            <mat-form-field appearance="fill">
+                <mat-label>Phone</mat-label>
+                <input matInput placeholder="starting with +" formControlName="phone" type="tel">
+
+                <div class="text-danger" *ngIf="formContact.controls['phone'].hasError('pattern')">
+                    starting with + and 10 digits
+                </div> 
+
+            </mat-form-field>
+        
+            <br>
+            
+            <!-- MESSAGE -->
+            <mat-form-field appearance="fill">
+                <mat-label>Message</mat-label>
+                <textarea matInput placeholder="15 character limit" formControlName="message"></textarea>
+
+                <div class="text-danger" *ngIf="formContact.controls['message'].hasError('maxlength')">
+                    15 character limit
+                </div> 
+
+            </mat-form-field>
+
+            <br>
+
+            <!-- BTN DISABLED-->
+            <button mat-flat-button color="primary" [disabled]="!formContact.valid">
+                Send
+            </button>
+        </form>
+
+        <!-- DEBUG STATUS FORM -->
+        <br>
+        <p>formContact.status: {{formContact.status}}</p>
+    
+    </mat-card>
+</main>
